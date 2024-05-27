@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des absences - Ensemble Scolaire APLIM</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gestion des absences</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="eleves.html">Élèves</a></li>
+                <li><a href="gestion_absences.html">Gestion des absences</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="gestion_absences">
+            <h2>Feuille d'appel - Mathématiques (Seconde A)</h2>
+            <div class="classe-container">
+                <div class="eleve" data-status="absent">
+                    <p>BROWN Lavande</p>
+                </div>
+                <!-- Répétez pour chaque élève -->
+            </div>
+            <button onclick="validerAppel()">Valider l'appel</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Ensemble Scolaire APLIM</p>
+    </footer>
+    <script src="scripts/absences.js"></script>
+</body>
+</html>
