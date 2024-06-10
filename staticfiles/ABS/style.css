@@ -1,0 +1,83 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    flex-direction: row;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    
+}
+.bouton_effet {
+    background-color: #0047AB;
+    color: #fff;
+    outline: none;
+    text-decoration: none;
+    padding: 15px;
+    margin: 5%;
+}
+
+.effet{
+    transition: background-color 0.3s ease, font-size 0.3s ease;
+    
+}
+
+.effet:hover{
+border-radius: 5%;
+color: rgb(255, 255, 255);
+font-size: larger;
+}
+
+
+/* Sidebar styles */
+.sidebar {
+    background-color: #0047AB;
+    color: #fff;
+    width: 10%;
+    height: 100vh;
+    padding: 15px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h1 {
+    margin-top: 0;
+}
+
+.sidebar nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.main-content {
+    margin-left: 12%;
+    padding: 20px;
+}
+
+header {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+footer {
+display: flex;
+margin-top: 5%;
+padding: 1% 3% 1% 3% ;
+color: rgb(255, 255, 255);
+background-color: #0047AB;
+}
