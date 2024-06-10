@@ -1,0 +1,15 @@
+{% extends "main/main.html" %}
+{% block title %}
+Index du site 
+{% endblock %}
+
+{% block content %}
+    <h1> Bienvenue sur la page Absence </h1>
+    <a href="/ABS/ajoutAbsence/" class="bouton effet"> ajouter une absence  </a>
+    <ol> 
+        {% for l in liste %}
+        <li> {{ l }} <br> {{l.etudiant}}<a href="/ABS/afficheAbsence/{{ l.id }}/" class="bouton effet"> affiche </a> <a href="/ABS/updateAbsence/{{ l.id }}/" class="bouton effet"> update </a> <a href="/ABS/deleteAbsence/{{ l.id }}/" class="bouton effet"> delete </a> </li>
+        {% endfor %}
+    </ol>
+
+{% endblock %}

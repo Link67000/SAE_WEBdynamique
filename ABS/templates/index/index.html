@@ -1,0 +1,33 @@
+{% extends "main/main.html" %}
+{% block title %}
+Index du site 
+{% endblock %}
+    <!-- faire ici la page principale style site d'établissement scolaire avec les liens vers absences etc. -->
+
+
+    {%block lien%}
+                <li><a class="effet" href="/ABS/"> Accueil </a></li>
+                <li><a class="effet" href="/ABS/Groupe"> Groupe </a></li>
+                <li><a class="effet" href="/ABS/Etudiant"> Etudiants </a></li>
+                <li><a class="effet" href="/ABS/Enseignant"> Enseignant </a></li>
+    {% endblock %}
+
+
+    {% block titre %}
+    Bienvenue sur la plateforme de gestion des absences
+    {% endblock titre %}
+    
+{% block lienAjout %}
+{% endblock lienAjout %}
+
+    {% block content %}
+
+    <p>Bienvenue sur le Projet SAE 2.03 de notre première année de R&T. </p>
+
+    <p>ce projet à été réalisé par ... </p>
+
+    <P>l'objectif de ce projet était de dévelloper nos compétences en web (dynamique) ainsi que d'apprendre à gérer une base de données et de savoir mettre u nsite web en ligne avec le service Apache2 </p>
+        
+    <p> notre site permet de voir les groupes retrouver des étudiants ou des Enseignant, voir ses cours et surtout de signaler une absence depuis les cours ! </p>
+            
+    {% endblock %}

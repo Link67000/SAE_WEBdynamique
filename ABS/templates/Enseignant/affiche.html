@@ -1,0 +1,29 @@
+{% extends "main/main.html" %}
+{% load static %}
+{% block title %}
+Index du site 
+{% endblock %}
+
+{% block titre %}
+Informations sur l'Enseignant
+{% endblock titre %}
+
+{% block content %}
+<section class="infoetudiant">
+    
+    <img src={% static 'ABS/default-avatar.png' %} alt="" class="photo_etudiant">
+
+    <div>
+        Nom : {{Enseignant.nom_Enseignant}} <br> <br>
+        Prenom : {{Enseignant.prenom_Enseignant}} <br> <br>
+        Email : {{Enseignant.email_Enseignant}}
+    </div>
+
+{% endblock %}
+
+{%block lien%}
+                <li><a class="effet" href="/ABS/"> Accueil </a></li>
+                <li><a class="effet" href="/ABS/Groupe"> Groupe </a></li>
+                <li><a class="effet" href="/ABS/Etudiant"> Etudiants </a></li>
+                <li><a class="effet" href="/ABS/Enseignant"> Enseignant </a></li>
+{% endblock %}

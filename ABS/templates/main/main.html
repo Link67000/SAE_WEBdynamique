@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title> 
+    {% block title %}
+    mon titre
+    {% endblock%}
+    </title>
+    
+    <link rel="stylesheet" href="{% static 'ABS/style.css' %}">
+</head>
+<body>
+    <div class="sidebar">
+        <img src="{% static 'ABS/ABS.png' %}" alt="Nom de l'image">
+        <nav>
+            <ul>
+                {% block lien%}
+                
+                {% endblock%}
+
+                
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1> {% block titre %}{% endblock titre %} </h1>
+        </header>
+        <main>
+            {% block lienAjout %}{% endblock lienAjout %}
+            <div id="div_content"> 
+                
+                {% block content %}
+                {% endblock  %}
+
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2024 ABS project</p>
+        </footer>
+    </div>
+</body>
+</html>
+

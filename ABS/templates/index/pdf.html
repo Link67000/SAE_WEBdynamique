@@ -1,0 +1,59 @@
+{% extends "main/main.html" %}
+{% load static %}
+{% block title %}
+Index du site 
+{% endblock %}
+
+{% block titre %}
+    {{Etudiant.nom}} {{Etudiant.prenom}} 
+{% endblock titre %}
+
+
+{% block content %}
+
+<h2> Informations sur l'étudiant </h2>
+<section class="infoetudiant">
+    
+    {% if Etudiant.photo %}
+            <img src="{{Etudiant.photo.url}}" class="photo_etudiant">
+            {% else %}
+            <img src={% static 'ABS/default-avatar.png' %} alt="" class="photo_etudiant">
+    {% endif %}
+    <div>
+        Nom : {{Etudiant.nom}} <br> <br>
+        Prenom : {{Etudiant.prenom}} <br> <br>
+        Groupe : {{Etudiant.groupe}} <br> <br>
+        Email : {{Etudiant.email}}
+    </div>
+    
+
+</section>
+
+<h2> Absences de l'étudiant </h2>
+<section class="liste">
+    Matière   |
+    Date      |
+    justifié  |
+    Enseignant
+</section>
+<br><br>
+    {% for i in liste_absence %}
+        <section class="liste">
+            <a href="/ABS/afficheCours/{{ i.cours.id }}/" class="bouton liste"> {{i.cours}} </a>|
+
+             {{i.cours.date_Cours}} |
+             {{i.justifie}} |
+             {{i.cours.Enseignant}} |
+            
+        </section>
+    
+
+    {% endfor %}
+{% endblock %}
+
+
+
+
+
+
+

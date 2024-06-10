@@ -1,0 +1,20 @@
+{% extends "main/main.html" %}
+{% block title %}
+Index du site 
+{% endblock %}
+
+
+
+{% block titre %}
+    Bienvenue sur la page Cours
+{% endblock titre %}
+
+{% block lienAjout %}
+    <a href="/ABS/ajoutCours/" class="bouton effet"> ajouter un cours  </a>
+{% endblock lienAjout %}
+
+{% block content %}
+    {% for l in liste %}
+        <li> {{ l }} <br> description : {{l.description}}<a href="/ABS/afficheCours/{{ l.id }}/" class="bouton effet"> affiche </a> <a href="/ABS/updateCours/{{ l.id }}/" class="bouton effet"> update </a> <a href="/ABS/deleteCours/{{ l.id }}/" class="bouton effet"> delete </a> </li>
+    {% endfor %}
+{% endblock %}

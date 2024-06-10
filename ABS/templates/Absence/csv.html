@@ -1,0 +1,10 @@
+{% extends "main/main.html" %}
+{% block title %}
+Index du site 
+{% endblock %}
+
+{% block content %}
+    <h1>Exporter les Absences</h1>
+    <a href="{% url 'export_absences_csv' %}" class="btn btn-primary">Télécharger le CSV des absences</a>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "main/main.html" %}
+{% block title %}
+Index du site 
+{% endblock %}
+
+{% block titre %}
+    Bienvenue sur la page Enseignant
+{% endblock titre %}
+
+{% block lienAjout %}
+    <a href="/ABS/ajoutEnseignant/" class="bouton_effet"> ajouter un enseignant </a>
+{% endblock lienAjout %}
+
+{% block content %}
+    <div class="div_etudiant">
+    {% for l in liste %}
+      <section class="liste_etudiant">
+        <p><a href="/ABS/afficheEnseignant/{{ l.id }}/"> 
+        <p>{{l.nom_Enseignant}} {{l.prenom_Enseignant}} </p>
+        <p> <a href="/ABS/updateEnseignant/{{ l.id }}/" class="bouton"> update </a>   </p>
+        <p> <a href="/ABS/deleteEnseignant/{{ l.id }}/" class="bouton"> delete </a>  </p>
+      </section>
+    
+    {% endfor %}
+    </div>
+{% endblock %}
+
+{%block lien%}
+                <li><a class="effet" href="/ABS/"> Accueil </a></li>
+                <li><a class="effet" href="/ABS/Groupe"> Groupe </a></li>
+                <li><a class="effet" href="/ABS/Etudiant"> Etudiants </a></li>
+                <li><a class="effet" href="/ABS/Enseignant"> Enseignant </a></li>
+{% endblock %}

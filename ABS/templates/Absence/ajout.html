@@ -1,0 +1,26 @@
+{% extends "main/main.html" %}
+{% block title %}
+Nouvelle absence
+{% endblock %}
+
+
+{% block titre %}
+Nouvelle absence
+{% endblock titre %}
+
+
+{% block content %}
+        <form method="post" action="/ABS/traitementAbsence/{{ cours_id }}/">
+        {% csrf_token %}
+        {{ form.as_ul }} 
+        <input type="submit" value="envoyer les données"/>
+    </form>
+{% endblock %}
+
+{% block lien %}
+<li class="list-group-item">
+   <a class="effet" href="/ABS/afficheCours/{{cours_id}}"> retour </a>
+</li>
+
+
+{% endblock lien %}

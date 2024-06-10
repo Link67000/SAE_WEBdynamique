@@ -1,0 +1,36 @@
+
+{% extends "main/main.html" %}
+{% block title %}
+Index du site 
+{% endblock %}
+
+{% block content %}
+
+
+
+
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+{% endblock %}
+
+{% block titre %}
+<h1>Upload CSV File</h1>
+{% endblock titre %}
+
+{%block lien%}
+<li><a class="effet" href="/ABS/"> Accueil </a></li>
+<li><a class="effet" href="/ABS/Groupe"> Groupe </a></li>
+<li><a class="effet" href="/ABS/Etudiant"> Etudiants </a></li>
+<li><a class="effet" href="/ABS/Enseignant"> Enseigants </a></li>
+{% endblock %}
+
+{% block lienAjout %}
+<a href="/ABS/csv/" class="bouton_effet"> télécharger fichier a remplir</a>
+{% endblock lienAjout %}

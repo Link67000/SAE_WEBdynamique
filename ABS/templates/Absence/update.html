@@ -1,0 +1,27 @@
+{% extends "main/main.html" %}
+{% block title %}
+Index du site 
+{% endblock %}
+
+{%block lien%}
+<li><a class="effet" href="/ABS/"> Accueil </a></li>
+<li><a class="effet" href="/ABS/Groupe"> Groupe </a></li>
+<li><a class="effet" href="/ABS/Etudiant"> Etudiants </a></li>
+<li><a class="effet" href="/ABS/Enseignant"> Enseignant </a></li>
+{% endblock %}
+
+
+{% block titre %}
+Update Absence
+{% endblock titre %}
+
+{% block lienAjout %}
+{% endblock lienAjout %}
+
+{% block content %}
+<form method="post" action="/ABS/updatetraitementAbsence/{{ id }}/">
+    {% csrf_token %}
+    {{ form.as_ul }} 
+    <input type="submit" value="envoyer les données"/>
+</form>
+{% endblock %}

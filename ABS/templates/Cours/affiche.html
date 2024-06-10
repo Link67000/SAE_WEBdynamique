@@ -1,0 +1,58 @@
+{% extends "main/main.html" %}
+{% block title %}
+{{Cours.titre_Cours}}
+{% endblock %}
+
+
+{%block lien%}
+<li><a class="effet" href="/ABS/"> Accueil </a></li>
+<li><a class="effet" href="/ABS/Groupe"> Groupe </a></li>
+<li><a class="effet" href="/ABS/Etudiant"> Etudiants </a></li>
+<li><a class="effet" href="/ABS/Enseignant"> Enseigants </a></li>
+{% endblock %}
+
+
+{% block titre %}
+{{Cours.titre_Cours}}
+{% endblock titre %}
+
+{% block lienAjout %}
+{% endblock lienAjout %}
+
+{% block content %}
+<h2> Informations sur le Cours </h2>
+<section class="infoetudiant">
+    <div>
+        Date : {{Cours.date_Cours}} <br> <br>
+        Durée : {{Cours.durée_Cours}} <br> <br>
+        Groupe : {{Cours.groupe}} <br> <br>
+        Enseignant : {{Cours.Enseignant}}
+    </div>
+    
+
+</section>
+
+<h2> Veulliez selectionner les absents : </h2>
+<div class="div_etudiant">
+    
+    
+    
+    {% for i in liste_etudiant %}
+
+    <section class="liste_etudiant">
+        <p><a href="absence/form/{{ i.id }}/"> 
+            {% if i.photo %}
+            <img src="{{i.photo.url}}" alt="" class="photo_etudiant">
+            {% else %}
+            <img src="SAE\media\photos\default-avatar.png" alt="" class="photo_etudiant">
+            {% endif %}
+        </a></p><br>
+        <p>{{i.nom}} {{i.prenom}} </p>
+        <p> {{l.groupe}} </p>
+      </section>
+      {% endfor %}
+</div>
+
+
+<a href="/ABS/afficheGroupe/{{Cours.groupe.id}}/" class="bouton_effet">Validé les absences</a>
+{% endblock %}

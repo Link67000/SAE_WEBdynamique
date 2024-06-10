@@ -1,0 +1,54 @@
+{% extends "main/main.html" %}
+{% block title %}
+{{Groupe.nom}}
+{% endblock %}
+
+
+{% block titre %}
+        {{Groupe.nom}}
+{% endblock titre %}
+
+
+{% block lienAjout %}
+        <a href="/ABS/ajoutCours/" class="bouton_effet"> ajouter un cours  </a>
+        <a href="/ABS/updateGroupe/{{ Groupe.id }}/" class="bouton_effet"> update </a>
+        <a href="/ABS/deleteGroupe/{{ Groupe.id }}/" class="bouton_effet"> delete </a>
+{% endblock lienAjout %}
+
+
+<h1>Cours du groupe {{Groupe.nom}} : </h1>
+{% block content %}
+
+<section class="liste">
+    <p>Matière</p>
+    <p>Date</p>
+    <p>Durée</p>
+    <p>Enseignant</p>
+</section>
+
+        {% for i in liste_cours %}
+        <section class="liste">
+            <p><a href="/ABS/afficheCours/{{ i.id }}/" class="bouton liste"> {{i}} </a></p>
+            <p> {{i.date_Cours}} </p>
+            <p> {{i.durée_Cours}} </p>
+            <p> {{i.Enseignant}} </p>
+            <p> <a href="/ABS/updateCours/{{ i.id }}/" class="bouton effet"> update </a>   </p>
+            <p> <a href="/ABS/deleteCours/{{ i.id }}/" class="bouton effet"> delete </a>  </p>
+        </section>
+    
+
+        {% endfor %}
+{% endblock %}
+
+
+{%block lien%}
+<li class="list-group-item">
+    <a class="effet" href="/ABS/Groupe/"> retour </a>
+</li>
+{% for l in liste %}
+<li class="list-group-item">
+    <a href="/ABS/afficheGroupe/{{ l.id }}/" class="bouton effet">{{ l }}</a>
+</li>           
+{% endfor %}
+{% endblock %}
+

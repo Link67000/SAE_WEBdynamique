@@ -1,0 +1,47 @@
+{% extends "main/main.html" %}
+{% load static %}
+{% block title %}
+Index du site 
+{% endblock %}
+
+
+
+{% block titre %}
+    Bienvenue sur la page Etudiants
+{% endblock titre %}
+
+{% block lienAjout %}
+    <a href="/ABS/ajoutEtudiant/" class="bouton_effet"> ajouter un etudiants </a>
+{% endblock lienAjout %}
+
+{% block content %}
+    <div class="div_etudiant">
+    {% for l in liste %}
+      <section class="liste_etudiant">
+
+        <p><a href="/ABS/afficheEtudiant/{{ l.id }}/" > 
+            {% if l.photo %}
+            <img src="{{l.photo.url}}" alt="" class="photo_etudiant">
+            {% else %}
+            <img src={% static 'ABS/default-avatar.png' %} alt="" class="photo_etudiant">
+            {% endif %}
+        </a></p>
+
+        <p>{{l.nom}} {{l.prenom}} </p>
+        <p> {{l.groupe}} </p>
+        <p> <a href="/ABS/updateEtudiant/{{ l.id }}/" class="bouton"> update </a>   </p>
+        <p> <a href="/ABS/deleteEtudiant/{{ l.id }}/" class="bouton"> delete </a>  </p>
+        
+      </section>
+    
+    {% endfor %}
+    </div>
+{% endblock %}
+
+
+{%block lien%}
+                <li><a class="effet" href="/ABS/"> Accueil </a></li>
+                <li><a class="effet" href="/ABS/Groupe"> Groupe </a></li>
+                <li><a class="effet" href="/ABS/Etudiant"> Etudiants </a></li>
+                <li><a class="effet" href="/ABS/Enseignant"> Enseignant </a></li>
+{% endblock %}

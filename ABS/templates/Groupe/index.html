@@ -1,0 +1,31 @@
+{% extends "main/main.html" %}
+{% block title %}
+Index du site 
+{% endblock %}
+
+
+
+    {% block titre %}
+    Bienvenue sur la page Groupe
+    {% endblock titre %}
+
+
+    {% block lienAjout %}
+            <a href="/ABS/ajoutGroupe/" class="bouton_effet"> ajouter un groupe  </a>
+    {% endblock lienAjout %}
+
+
+    {% block content %}
+            {% for l in liste %}
+            <li> <a href="/ABS/afficheGroupe/{{ l.id }}/" class="bouton effet"> {{ l }} </a> </li>
+                
+            {% endfor %}
+    {% endblock %}
+
+
+{%block lien%}
+                <li><a class="effet" href="/ABS/"> Accueil </a></li>
+                <li><a class="effet" href="/ABS/Groupe"> Groupe </a></li>
+                <li><a class="effet" href="/ABS/Etudiant"> Etudiants </a></li>
+                <li><a class="effet" href="/ABS/Enseignant"> Enseignant </a></li>
+{% endblock %}

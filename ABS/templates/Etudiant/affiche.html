@@ -1,0 +1,69 @@
+{% extends "main/main.html" %}
+{% load static %}
+{% block title %}
+Index du site 
+{% endblock %}
+
+{% block titre %}
+    {{Etudiant.nom}} {{Etudiant.prenom}} 
+{% endblock titre %}
+
+{% block lienAjout %}
+<a href="/ABS/afficheEtudiant/{{Etudiant.id}}/pdf" class="bouton_effet">exporter</a>
+<a href="/ABS/depotcsv" class="bouton_effet">créer absences</a>
+{% endblock lienAjout %}
+
+{% block content %}
+
+<h2> Informations sur l'étudiant </h2>
+<section class="infoetudiant">
+    
+    {% if Etudiant.photo %}
+            <img src="{{Etudiant.photo.url}}" class="photo_etudiant">
+            {% else %}
+            <img src={% static 'ABS/default-avatar.png' %} alt="" class="photo_etudiant">
+    {% endif %}
+    <div>
+        Nom : {{Etudiant.nom}} <br> <br>
+        Prenom : {{Etudiant.prenom}} <br> <br>
+        Groupe : {{Etudiant.groupe}} <br> <br>
+        Email : {{Etudiant.email}}
+    </div>
+    
+
+</section>
+
+<h2> Absences de l'étudiant </h2>
+<section class="liste">
+    <p>Matière</a></p>
+    <p> Date </p>
+    <p> justifié </p>
+    <p> justification </p>
+</section>
+
+    {% for i in liste_absence %}
+        <section class="liste">
+            <p><a href="/ABS/afficheCours/{{ i.cours.id }}/" class="bouton liste"> {{i.cours}} </a></p>
+
+            <p> {{i.cours.date_Cours}} </p>
+            <p> {{i.justifie}} </p>
+            <p> {{i.justification}} </p>
+            <p> <a href="/ABS/updateAbsence/{{ i.id }}/" class="bouton effet"> update </a>   </p>
+            <p> <a href="/ABS/deleteAbsence/{{ i.id }}/" class="bouton effet"> delete </a>  </p>
+        </section>
+    
+
+    {% endfor %}
+{% endblock %}
+
+{%block lien%}
+<li><a class="effet" href="/ABS/"> Accueil </a></li>
+<li><a class="effet" href="/ABS/Groupe"> Groupe </a></li>
+<li><a class="effet" href="/ABS/Etudiant"> Etudiants </a></li>
+<li><a class="effet" href="/ABS/Enseignant"> Enseignant </a></li>
+{% endblock %}
+
+
+
+
+

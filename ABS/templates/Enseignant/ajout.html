@@ -1,0 +1,29 @@
+{% extends "main/main.html" %}
+{% block title %}
+Index du site 
+{% endblock %}
+
+
+{% block titre %}
+    Nouvel Etudiant  
+{% endblock titre %}
+
+{% block lienAjout %}
+{% endblock lienAjout %}
+
+{% block content %}
+    <form method="post" action="{% if id %}/ABS/updatetraitementEnseignant/{{ id }}/{% else %}/ABS/traitementEnseignant/{% endif %}">
+        {% csrf_token %}
+        {{ form.as_ul }} 
+        <input type="submit" value="envoyer les données"/>
+    </form>
+{% endblock %}
+
+
+
+{%block lien%}
+                <li><a href="/ABS/"> Accueil </a></li>
+                <li><a href="/ABS/Groupe"> Groupe </a></li>
+                <li><a href="/ABS/Etudiant"> Etudiants </a></li>
+                <li><a class="effet" href="/ABS/Enseignant"> Enseignant </a></li>
+{% endblock %}
