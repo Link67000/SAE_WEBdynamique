@@ -1,5 +1,13 @@
 # Gestion des Absences
 
+
+  # Ce repository contient :
+  - Le code complet du site 
+  - un dossier contenant les fichiers de configurition d'apache2
+  - un dossier contenant les schémas relationel de la base de donnée
+  - un fichier avec les commandes/script pour creer la base de données sur MySql 
+
+
 ## Introduction
 Ce projet a pour objectif de fournir une interface de gestion des absences pour un département universitaire. Les gestionnaires pourront saisir et valider les absences des étudiants pour différents cours, ainsi qu'ajouter des justifications pour ces absences. Le projet inclut un CRUD pour gérer les groupes d'étudiants, les étudiants, les enseignants, les cours et les absences.
 
@@ -60,3 +68,5 @@ Ce projet a pour objectif de fournir une interface de gestion des absences pour 
 - Importer les absences d'un cours via un fichier.
 - Générer une fiche de liste des absences pour un cours spécifique.
 - Générer une fiche des absences pour un étudiant, incluant le total des absences justifiées et non justifiées.
+
+
