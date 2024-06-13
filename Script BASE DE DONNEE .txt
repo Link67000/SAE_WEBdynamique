@@ -1,0 +1,53 @@
+
+------ table des groupes --------
+
+CREATE TABLE Groupes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255) NOT NULL
+);
+
+------ table des étudiants -------
+
+CREATE TABLE Etudiants (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255) NOT NULL,
+    prenom VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    groupe_id INT,
+    photo BLOB,
+    FOREIGN KEY (groupe_id) REFERENCES Groupes(id)
+);
+
+------ table des enseignants -------
+
+CREATE TABLE Enseignants (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255) NOT NULL,
+    prenom VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL
+);
+
+------ table des cours -------
+
+CREATE TABLE Cours (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    titre_du_cours VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    enseignant_id INT,
+    duree TIME NOT NULL,
+    groupe_id INT,
+    FOREIGN KEY (enseignant_id) REFERENCES Enseignants(id),
+    FOREIGN KEY (groupe_id) REFERENCES Groupes(id)
+);
+
+------- table des absences --------
+
+CREATE TABLE Absences (
+    etudiant_id INT,
+    cours_id INT,
+    justifie BOOLEAN NOT NULL,
+    justification TEXT,
+    PRIMARY KEY (etudiant_id, cours_id),
+    FOREIGN KEY (etudiant_id) REFERENCES Etudiants(id),
+    FOREIGN KEY (cours_id) REFERENCES Cours(id)
+);
